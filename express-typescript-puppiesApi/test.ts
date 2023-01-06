@@ -55,7 +55,7 @@ describe('Testing api endpoint', () => {
     expect(res.body[3].name).toEqual('Fifi');
   });
 
-  test.only('Put puppy in the existing DB', async () => {
+  test('Delete puppy from DB', async () => {
     const res = await request(app)
     .delete('/api/puppies/3')
     expect(res.statusCode).toEqual(200);
