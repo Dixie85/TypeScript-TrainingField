@@ -2,7 +2,7 @@ import express from "express";
 import { Request, Response, Application } from "express";
 import bodyParser from "body-parser";
 import { puppiesDb } from "./db/db";
-import { IPuppie } from "types/types";
+import { INewPappie, INewUpdatedPappie, IPuppie, IUpdatedPappie } from "types/types";
 
 const app: Application = express();
 
@@ -24,7 +24,7 @@ app.get("/api/puppies/:id", (_req: Request, res: Response) => {
 });
 
 app.post("/api/puppies", (_req: Request, res: Response) => {
-  const puppyData: IPuppie = _req.body;
+  const puppyData: INewPappie = _req.body;
   const newPuppyEntry: IPuppie = {
     id: puppiesDb.length + 1,
     ...puppyData,
@@ -36,8 +36,8 @@ app.post("/api/puppies", (_req: Request, res: Response) => {
 
 app.put("/api/puppies/:id", (_req: Request, res: Response) => {
   const id: number = Number(_req.params.id);
-  const puppyData: IPuppie = _req.body;
-  const updatedPuppyEntry: IPuppie = {
+  const puppyData: INewUpdatedPappie = _req.body;
+  const updatedPuppyEntry: IUpdatedPappie = {
     id: id,
     ...puppyData,
   };

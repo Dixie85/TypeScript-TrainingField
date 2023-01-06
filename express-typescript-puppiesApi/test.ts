@@ -2,15 +2,8 @@ import request from 'supertest';
 import app from './app';
 import { puppiesDb } from './db/db';
 
-describe('Testing api endpoint', () => {
-  
-  test('sanity check for /test', async () => {
-    const res = await request(app).get('/api/test');
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toEqual({
-      test: 'is working as it should',
-    });
-  });
+
+describe('Testing GET endpoint', () => {
 
   test('Getting all puppises', async () => {
     const res = await request(app).get('/api/puppies');
@@ -18,12 +11,38 @@ describe('Testing api endpoint', () => {
     expect(res.body).toEqual(puppiesDb);
   });
 
+  test('Error testing GET all puppises, bad DB conecton', async () => {
+    const res = await request(app).get('/api/puppies');
+    expect(res.statusCode).toEqual(500);
+    expect(res.body).toEqual({message: 'Internal Server Error'});
+  });
+});
+
+
+describe('Testing GET endpoint with ID', () => {
+
   test('Getting a puppy with ID', async () => {
     const res = await request(app).get('/api/puppies/1');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(puppiesDb[1]);
   });
-  
+
+  test('Error testing GET a puppy with ID, not existing ID', async () => {
+    const res = await request(app).get('/api/puppies/9999');
+    expect(res.statusCode).toEqual(404);
+    expect(res.body).toEqual({message: 'Puppy with ID number 9999 not does not exist'});
+  });
+
+  test('Error testing GET a puppy with ID, bad DB conecton', async () => {
+    const res = await request(app).get('/api/puppies');
+    expect(res.statusCode).toEqual(500);
+    expect(res.body).toEqual({message: 'Internal Server Error'});
+  });
+});
+
+
+describe('Testing POST endpoint ', () => {
+
   test('Post new puppy', async () => {
     const res = await request(app)
     .post('/api/puppies')
@@ -42,7 +61,30 @@ describe('Testing api endpoint', () => {
     });
   });
 
-  test('Put puppy in the existing DB', async () => {
+  test('Error testing POST a puppy, all fields to be filled ', async () => {
+    const res = await request(app)
+    .post('/api/puppies')
+    .set('Content-type', 'application/json')
+    .send({
+      name : '',
+      breed : '',
+      birthDate : ''
+    });
+    expect(res.statusCode).toEqual(400);
+    expect(res.body).toEqual({message: 'Bad request, Please make sure all fields are filled.'});
+  });
+
+  test('Error testing POST a puppy, bad DB conecton', async () => {
+    const res = await request(app).post('/api/puppies');
+    expect(res.statusCode).toEqual(500);
+    expect(res.body).toEqual({message: 'Internal Server Error'});
+  });
+});
+
+
+describe('Testing PUT endpoint', () => {
+
+  test('PUT a puppy in the existing DB', async () => {
     const res = await request(app)
     .put('/api/puppies/2')
     .set('Content-type', 'application/json')
@@ -55,11 +97,42 @@ describe('Testing api endpoint', () => {
     expect(res.body[3].name).toEqual('Fifi');
   });
 
-  test('Delete puppy from DB', async () => {
+  test('Error testing PUT a puppy in the existing DB, no data was send', async () => {
+    const res = await request(app)
+    .put('/api/puppies/2')
+    .set('Content-type', 'application/json')
+    .send({});
+    expect(res.statusCode).toEqual(400);
+    expect(res.body).toEqual({message: 'Nothing was changed, no data provided.'});
+  });
+
+  test('Error testing PUT a puppy, bad DB conecton', async () => {
+    const res = await request(app).post('/api/puppies');
+    expect(res.statusCode).toEqual(500);
+    expect(res.body).toEqual({message: 'Internal Server Error'});
+  });
+});
+
+
+describe('Testing DELETE endpoint', () => {
+
+  test('DELETE puppy from DB', async () => {
     const res = await request(app)
     .delete('/api/puppies/3')
     expect(res.statusCode).toEqual(200);
     expect(res.body.length).toEqual(puppiesDb.length - 1);
   });
 
+  test('Error testing DELETE puppy from DB', async () => {
+    const res = await request(app)
+    .delete('/api/puppies/9999')
+    expect(res.statusCode).toEqual(404);
+    expect(res.body).toEqual({message: 'Puppy not found'});
+  });
+
+  test('Error testing DELETE puppy, bad DB conecton', async () => {
+    const res = await request(app).post('/api/puppies');
+    expect(res.statusCode).toEqual(500);
+    expect(res.body).toEqual({message: 'Internal Server Error'});
+  });
 });
