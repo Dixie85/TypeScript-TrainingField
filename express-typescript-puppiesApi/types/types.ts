@@ -17,3 +17,8 @@ export interface INewUpdatedPappie {
 export interface IUpdatedPappie extends INewUpdatedPappie{
     id : number,
 }
+
+export interface IError {
+    status: number,
+    message: string,
+}
