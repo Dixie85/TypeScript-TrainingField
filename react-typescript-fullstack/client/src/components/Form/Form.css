@@ -1,0 +1,45 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid rgba(245, 245, 245, 0.632);
+    border-radius: 5px;
+    max-width: 500px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 68px;
+    color: rgba(250, 235, 215, 0.627);
+}
+
+.form p:first-child{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.form label{
+    margin-bottom: .4rem;
+    font-size: large;
+}
+
+.form input{
+    margin-bottom: .4rem;
+    height: 2rem;
+    font-size: large;
+    background: rgba(245, 245, 245, 0.602);
+    border: 1px solid rgba(245, 245, 245, 0.632);
+}
+
+.tetsForm{
+    border: 2px solid green;
+}
+
+.form__button-container {
+    margin-top: .9rem;
+    display: flex;
+    padding: 0 1rem;
+}
+
+.form__button-container button:last-child{
+    margin-left: auto;
+}

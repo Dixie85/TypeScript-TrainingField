@@ -1,0 +1,26 @@
+.catalog-home-page-view{
+    border: 3px solid rgb(164 157 155 / 44%);
+    margin: 3rem;
+    padding: .8rem;
+    transform: rotate(5deg);
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: .6rem;
+    max-height: 100vh;
+    overflow: hidden;
+    background: #273842;
+    border-radius: 10px; 
+}
+
+
+.catalog{
+    border: 1px solid rgb(164 157 155 / 44%);
+    margin: 2rem;
+    padding: .8rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+    background: #273842; 
+    border-radius: 2.5px;
+}
