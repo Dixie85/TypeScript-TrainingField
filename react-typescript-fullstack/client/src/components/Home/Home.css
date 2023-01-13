@@ -6,7 +6,6 @@
 
 .homepage_introduction-section{
     margin: auto;
-    /* border: 1px solid red; */
     padding: 1rem;
 }
 
@@ -25,18 +24,20 @@
     margin: 0 0 7rem 1rem;
     max-width: 550px;
 }
+
 .homepage_introduction-section > p{
-    /* color: chocolate; */
     font-weight:600;
     font-size: 1.5rem;
-    margin: 0 0 7rem 1rem;
+    margin: 0 0 0 1rem;
     max-width: 550px;
     text-align: right;
     text-transform: capitalize;
-    color: whitesmoke;
+    color: rgba(245, 245, 245, 0.767);
+    background-color: rgba(0, 0, 0, 0.62);
+    border-radius: 4px;
+
 }
 
-.homepage_catalog-section{
-    /* border: 1px solid blue; */
-
+.homepage_introduction-section p:last-child{
+    margin: 0 0 7rem 1rem;
 }

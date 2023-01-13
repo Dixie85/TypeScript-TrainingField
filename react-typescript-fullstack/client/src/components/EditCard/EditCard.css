@@ -5,7 +5,6 @@
 }
 
 .editcard__display-card-section {
-  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: auto;
 }
@@ -16,48 +15,37 @@
   transform: rotate(-5deg);
   margin-top: 2rem;
   margin-left: 1.5rem;
-
-
 }
 
 .editcard__display-card-section__text-wrapper {
-  /* background: lightgrey; */
-  /* min-height: 300px;
-  min-width: 300px; */
   padding: 0 1.5rem;
   margin-top: 2rem;
   color: chocolate;
   font-size: large;
 }
-
-.editcard__display-card-section__card-wrapper__text p:first-child {
-
+.editcard__display-card-section__text-wrapper p {
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.62);
 }
 
 .editcard__display-form-section {
-  /* border: 1px solid blue; */
   display: grid;
   grid-template-columns: auto;
 }
 
-.editcard__display-form-section__text-wrapper{
-    padding: 0 1.5rem;
-    color: chocolate;
-    font-size: large;
+.editcard__display-form-section__text-wrapper {
+  padding: 0 1.5rem;
+  color: chocolate;
+  font-size: large;
 }
 
-.editcard__display-form-section__text-wrapper p:first-child{
-margin-top: 5.5rem;
+.editcard__display-form-section__text-wrapper p:first-child {
+  margin-top: 5.5rem;
 }
-
-
 
 .editcard__display-form__form-conteiner {
-  /* border: 1 solid #000; */
-  /* background: rgba(255, 250, 205, 0.213); */
   min-height: 300px;
   min-width: 300px;
-  padding-top: 2rem;
   border-radius: 96px;
   height: 40vh;
 }

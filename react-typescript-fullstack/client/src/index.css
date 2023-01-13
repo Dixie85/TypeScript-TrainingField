@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("https://i.pinimg.com/originals/10/46/3e/10463e9cc90622c1edf47e34a76ece23.jpg");
+  font-family: 'Sniglet', cursive;
 }
 
 code {

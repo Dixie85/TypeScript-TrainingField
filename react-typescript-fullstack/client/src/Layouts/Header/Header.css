@@ -1,0 +1,23 @@
+.header {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: rgba(255, 245, 238, 0.085);
+}
+
+.logo {
+  max-height: 5rem;
+}
+
+.header__button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2rem;
+}
+
+.header__nav-btn{
+    color: whitesmoke;
+    margin: 0 1rem;
+    max-height: 5rem;
+    font-size: large;
+}

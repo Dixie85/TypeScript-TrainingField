@@ -1,0 +1,17 @@
+.footer{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: auto;
+    color: whitesmoke;
+    /* border-top: 1px solid rgba(128, 128, 128, 0.655); */
+    justify-items: end;
+    background: rgba(255, 245, 238, 0.085);
+}
+
+.footer__description-top{
+    margin: .5rem 0 .2rem 0;
+}
+.footer__description-bottom{
+    margin: .2rem 0 .5rem 0;
+}
