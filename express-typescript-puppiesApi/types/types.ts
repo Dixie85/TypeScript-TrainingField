@@ -22,3 +22,8 @@ export interface IError {
     status: number,
     message: string,
 }
+
+export interface IStatusError extends Error {
+    status?: number
+  }
+  

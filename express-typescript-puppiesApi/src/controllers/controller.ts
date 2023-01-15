@@ -1,15 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 import { puppiesDb } from "../../db/db";
-import { INewPappie, INewUpdatedPappie, IPuppie, IUpdatedPappie } from "types/types";
+import { INewPappie, INewUpdatedPappie, IPuppie, IUpdatedPappie, IStatusError } from "types/types";
 
-interface StatusError extends Error {
-  status?: number
-}
 
 export const getAllPuppise = (_req: Request, res: Response, next: NextFunction) : any => {
     if (!puppiesDb) {
-      const error = new Error ('Internal Server Error') as StatusError;
-      error.status = 501
+      const error = new Error ('Internal Server Error') as IStatusError;
+      error.status = 500
       next (error)
     } else {
       return res.status(200).json(puppiesDb);
@@ -79,7 +76,7 @@ export const deletePuppy = (req: Request, res: Response) : any => {
 //   res.status(404).json({message : `Puppy with ID number ${id} not does not exist`});
 // }; 
 
-export const errorHandler = (err: StatusError, _req: Request, res: Response) => {
+export const errorHandler = (err: IStatusError, _req: Request, res: Response) => {
   res.status(err.status || 500);
   res.send({
     error: {
