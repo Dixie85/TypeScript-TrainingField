@@ -2,8 +2,8 @@ import React from 'react'
 import './EditCard.css'
 import { useLocation } from "react-router";
 import { IPuppiesStateData } from '../../interfaces/interfaces';
-import Form from '../Form/Form';
-import Card from '../Card/Card';
+import Form from '../../Components/Form/Form';
+import Card from '../../Components/Card/Card';
 
 interface IEditCard {
     puppies: IPuppiesStateData[]

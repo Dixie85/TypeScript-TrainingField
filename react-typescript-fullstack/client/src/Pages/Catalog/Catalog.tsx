@@ -2,7 +2,7 @@ import React from 'react'
 import './Catalog.css'
 import { IPuppiesStateData } from '../../interfaces/interfaces'
 import { Link } from 'react-router-dom'
-import Card from '../Card/Card'
+import Card from '../../Components/Card/Card'
 
 interface ICatalogPuppies {
   puppies: IPuppiesStateData[],

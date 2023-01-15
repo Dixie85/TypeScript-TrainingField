@@ -2,11 +2,12 @@ import './Main.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
-import Catalog from '../../components/Catalog/Catalog';
-import EditCard from '../../components/EditCard/EditCard';
-import Home from '../../components/Home/Home';
+import Catalog from '../../Pages/Catalog/Catalog';
+import EditCard from '../../Pages/EditCard/EditCard';
+import Home from '../../Pages/Home/Home';
 import { IPuppiesStateData } from '../../interfaces/interfaces';
-import Instructions from '../../components/Instructions/Instructions';
+import Instructions from '../../Pages/Instructions/Instructions';
+
 
 
 function Main() {
